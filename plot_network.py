@@ -98,11 +98,13 @@ def plotly_network(dataframe, aspect):
         fig = go.Figure(data=[edge_trace, node_trace],
                         # text = node_trace['text'],
                         layout=go.Layout(
-                            title='<br>Words Correlation of {}'.format(aspect.capitalize()),
+                            title='<br>Word Correlation of {}\n\n'.format(aspect.capitalize()),
                             titlefont=dict(size=12),
                             showlegend=False,
                             hovermode='closest',
                             margin=dict(b=20, l=5, r=5, t=40),
+                            paper_bgcolor='white',
+                            plot_bgcolor='white',
                             # annotations=[ dict(
                             #    text="No. of connections",
                             #    showarrow=False,
@@ -118,6 +120,11 @@ def plotly_network(dataframe, aspect):
             text=[i.split()[0] for i in node_trace['text']],
             textposition="top center",
         ))
+
+        fig.update_layout({
+            # 'plot_bgcolor': 'rgba(2, 30, 200, 32)',
+            'paper_bgcolor': 'white',
+        })
 
         # fig.layout.template = 'plotly_dark'
 

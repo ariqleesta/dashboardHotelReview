@@ -256,7 +256,7 @@ content = dbc.Container(
                                         [
                                             dcc.Tabs(
                                                 [
-                                                    dcc.Tab(label='Hotel Services Sentiment Score', children=[
+                                                    dcc.Tab(label='Hotel Facilities Sentiment Score', children=[
                                                         radar_graph()
 
                                                     ], style=CARD_HEADER_STYLE),
@@ -316,29 +316,48 @@ content = dbc.Container(
 layout = html.Div(
     [
         html.Br(),
-        html.H1(
-            children='Europe Hotel Reviews',
+        html.H2(
+            children='Sentiment Analysis on Hotel Reviews Data in Europe',
             style={
                 'textAlign': 'center',
                 'color': colors['text']
             }
         ),
 
-        html.Div(children='''This is the results of sentiment analysis through the reviews about 
-        Hotels in Europe based on certain aspects.''',
+        html.Br(),
+
+        html.Div(children=['''This dashboard aims to provide information about 
+        the quality of hotel facilities in the capitals of European countries 
+        based on customer reviews from Booking.com. The scoring of each facilities 
+        is done by performing sentiment analysis to measure how good or how 
+        bad the facilities are provided (see “Hotel Facilities Sentiment Score” tab). 
+        Topic modelling is used to determine the relevant facilities 
+        provided by the hotels (see “Word Correlation” tab). '''],
                  style={'textAlign': 'center',
                         'color': colors['text']
                         }
                  ),
 
-        html.Br(),
-
-        html.Div(children='''Project by Ariqleesta (LBB Algoritma).''', style={
+        html.Div(children=[' Data Source: ', dcc.Link('\nKaggle. ', href='https://www.kaggle.com/jiashenliu/515k-hotel-reviews-data-in-europe')], style={
             'textAlign': 'center',
             'color': colors['text'],
             'font-size': '12px',
         }),
 
+        html.Br(),
+
+        html.Div(children=['''Project by Ariqleesta (LBB Algoritma).'''], style={
+            'textAlign': 'center',
+            'color': colors['text'],
+            'font-size': '12px',
+        }),
+        html.Div(children=[
+                           dcc.Link('\nLinkedIn, ', href='https://www.linkedin.com/in/ariqleesta/'),
+                           dcc.Link('\nGitHub ', href='https://github.com/ariqleesta')], style={
+            'textAlign': 'center',
+            'color': colors['text'],
+            'font-size': '12px',
+        }),
         html.Hr(),
         content
     ],
