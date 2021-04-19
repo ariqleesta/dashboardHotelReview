@@ -11,6 +11,16 @@ import myfunc as mf
 import plot_network as net
 import mywordcloud as wc
 
+import ssl
+
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
+
+
 df = pd.read_excel('dashboard_data.xlsx')
 df.head()
 
